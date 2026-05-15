@@ -310,35 +310,6 @@ opacity:0.6;
 
 }
 
-/* 切り替え画像 */
-
-#imageScreen{
-
-display:none;
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:1280px;
-height:720px;
-
-z-index:999;
-
-background:black;
-
-}
-
-#imageScreen img{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-}
-
 /* アニメ */
 
 @keyframes pop{
@@ -374,17 +345,6 @@ src="bgm.mp3"
 type="audio/mpeg">
 
 </audio>
-
-<!-- 切り替え画像 -->
-
-<div id="imageScreen">
-
-<img
-src="event.jpg">
-
-</div>
-
-<!-- メイン -->
 
 <div class="wrapper">
 
@@ -595,44 +555,6 @@ console.log(e);
 }
 
 });
-
-/* 画面切り替え */
-
-const wrapper =
-document.querySelector(
-".wrapper"
-);
-
-const imageScreen =
-document.getElementById(
-"imageScreen"
-);
-
-let showImage = false;
-
-setInterval(()=>{
-
-showImage = !showImage;
-
-if(showImage){
-
-wrapper.style.display =
-"none";
-
-imageScreen.style.display =
-"block";
-
-}else{
-
-wrapper.style.display =
-"flex";
-
-imageScreen.style.display =
-"none";
-
-}
-
-},30000);
 
 </script>
 
