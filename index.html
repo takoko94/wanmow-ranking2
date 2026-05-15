@@ -348,53 +348,6 @@ cursor:pointer;
 
 }
 
-/* 再生ボタン */
-
-.start-button{
-
-position:absolute;
-
-top:50%;
-left:50%;
-
-transform:
-translate(-50%,-50%);
-
-background:white;
-
-border:none;
-
-border-radius:999px;
-
-padding:22px 40px;
-
-font-size:32px;
-
-font-weight:900;
-
-color:#d28fa2;
-
-cursor:pointer;
-
-border:4px solid #eadfd7;
-
-box-shadow:
-0 8px 20px rgba(0,0,0,0.1);
-
-z-index:99999;
-
-transition:0.2s;
-
-}
-
-.start-button:hover{
-
-transform:
-translate(-50%,-50%)
-scale(1.05);
-
-}
-
 /* アニメ */
 
 @keyframes pop{
@@ -421,23 +374,15 @@ opacity:1;
 
 <audio
 id="bgm"
-loop>
+autoplay
+loop
+muted>
 
 <source
 src="bgm.mp3"
 type="audio/mpeg">
 
 </audio>
-
-<!-- 再生ボタン -->
-
-<button
-class="start-button"
-id="startButton">
-
-🎵 BGM START 🎵
-
-</button>
 
 <!-- 音量 -->
 
@@ -645,27 +590,21 @@ document.getElementById(
 "volumeSlider"
 );
 
-const startButton =
-document.getElementById(
-"startButton"
-);
-
 /* 初期音量 */
 
 bgm.volume = 0.002;
 
-/* 再生 */
+/* 自動再生対策 */
 
-startButton.addEventListener(
-"click",
+window.addEventListener(
+"load",
 async ()=>{
 
 try{
 
 await bgm.play();
 
-startButton.style.display =
-"none";
+bgm.muted = false;
 
 }catch(e){
 
