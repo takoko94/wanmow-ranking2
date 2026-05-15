@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>
+わんも〜推し犬総選挙
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+width:1280px;
+height:720px;
+
+overflow:hidden;
+
+font-family:
+'Zen Maru Gothic',
+sans-serif;
+
+background:
+linear-gradient(
+180deg,
+#fffaf5,
+#fff6f9
+);
+
+padding:18px;
+
+color:#5c4b42;
+
+}
+
+.wrapper{
+
+width:1244px;
+height:684px;
+
+display:flex;
+flex-direction:column;
+
+gap:14px;
+
+}
+
+.header{
+
+height:90px;
+
+background:white;
+
+border-radius:28px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:42px;
+font-weight:900;
+
+color:#d28fa2;
+
+border:3px solid #eadfd7;
+
+}
+
+.main{
+
+flex:1;
+
+display:flex;
+
+gap:14px;
+
+}
+
+.left{
+
+width:65%;
+
+background:white;
+
+border-radius:28px;
+
+padding:18px;
+
+border:3px solid #eadfd7;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.right{
+
+width:35%;
+
+background:white;
+
+border-radius:28px;
+
+padding:18px;
+
+border:3px solid #eadfd7;
+
+}
+
+.title{
+
+font-size:28px;
+
+font-weight:900;
+
+color:#d28fa2;
+
+margin-bottom:8px;
+
+text-align:center;
+
+}
+
+.rank{
+
+height:84px;
+
+border-radius:24px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 22px;
+
+font-size:30px;
+
+font-weight:900;
+
+margin-bottom:10px;
+
+}
+
+.gold{
+background:#fff0a8;
+}
+
+.silver{
+background:#efefef;
+}
+
+.bronze{
+background:#f7e7de;
+}
+
+.normal{
+background:#fff8fb;
+}
+
+.rank-left{
+
+display:flex;
+
+align-items:center;
+
+gap:16px;
+
+}
+
+.medal{
+
+width:54px;
+height:54px;
+
+border-radius:999px;
+
+background:white;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:24px;
+
+}
+
+.vote{
+
+color:#d28fa2;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:10px;
+
+}
+
+.small{
+
+height:120px;
+
+border-radius:22px;
+
+background:#fff8fb;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+justify-content:center;
+
+font-weight:900;
+
+border:3px solid #eadfd7;
+
+}
+
+.update{
+
+margin-top:12px;
+
+font-size:14px;
+
+text-align:center;
+
+opacity:0.6;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="header">
+🐶 わんも〜推し犬総選挙 🐶
+</div>
+
+<div class="main">
+
+<div class="left">
+
+<div class="title">
+🏆 TOP 5
+</div>
+
+<div id="top5"></div>
+
+</div>
+
+<div class="right">
+
+<div class="title">
+🐾 6〜10位
+</div>
+
+<div class="grid"
+id="top10">
+</div>
+
+<div class="update"
+id="update">
+更新中...
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const API_URL =
+"ここにGASのURL";
+
+async function loadRanking(){
+
+try{
+
+const res =
+await fetch(API_URL);
+
+const data =
+await res.json();
+
+drawRanking(data);
+
+document
+.getElementById("update")
+.innerText =
+"最終更新：" +
+new Date()
+.toLocaleTimeString();
+
+}catch(e){
+
+console.log(e);
+
+}
+
+}
+
+function drawRanking(ranking){
+
+const top5 =
+document.getElementById("top5");
+
+const top10 =
+document.getElementById("top10");
+
+top5.innerHTML = "";
+top10.innerHTML = "";
+
+ranking.forEach((dog,i)=>{
+
+let cls = "normal";
+
+if(i==0) cls="gold";
+else if(i==1) cls="silver";
+else if(i==2) cls="bronze";
+
+const medal =
+i==0 ? "🥇" :
+i==1 ? "🥈" :
+i==2 ? "🥉" :
+(i+1)+"位";
+
+if(i < 5){
+
+top5.innerHTML += `
+
+<div class="rank ${cls}">
+
+<div class="rank-left">
+
+<div class="medal">
+${medal}
+</div>
+
+<div>
+${dog.name}
+</div>
+
+</div>
+
+<div class="vote">
+${dog.votes}票
+</div>
+
+</div>
+
+`;
+
+}else if(i < 10){
+
+top10.innerHTML += `
+
+<div class="small">
+
+<div style="font-size:18px;">
+${i+1}位
+</div>
+
+<div style="
+font-size:24px;
+margin:6px 0;
+">
+
+${dog.name}
+
+</div>
+
+<div style="
+font-size:24px;
+color:#d28fa2;
+">
+
+${dog.votes}票
+
+</div>
+
+</div>
+
+`;
+
+}
+
+});
+
+}
+
+loadRanking();
+
+setInterval(
+loadRanking,
+10000
+);
+
+</script>
+
+</body>
+</html>
