@@ -57,8 +57,8 @@ font-family:'Yasashisa' !important;
 background:
 linear-gradient(
 180deg,
-#fff9fb 0%,
-#fff4f7 100%
+#fff7f3 0%,
+#fff2f6 100%
 );
 
 position:relative;
@@ -101,11 +101,11 @@ pointer-events:none;
 
 }
 
-/* 肉球 */
+/* 肉球背景 */
 
 body::after{
 
-content:"🐾 🦴 🐾 💖 🐾";
+content:"🐾 🦴 💖 🐾 🧸 🐾";
 
 position:absolute;
 
@@ -201,22 +201,25 @@ min-height:0;
 
 }
 
-/* 左右 */
+/* 左右パネル */
 
 .left,
 .right{
 
 background:
-rgba(255,255,255,0.82);
+linear-gradient(
+180deg,
+#fffdfd 0%,
+#fff6f8 100%
+);
 
-backdrop-filter:blur(10px);
+border-radius:42px;
 
-border-radius:36px;
-
-border:4px solid #ffe1ea;
+border:5px solid #ffe3ec;
 
 box-shadow:
-0 10px 25px rgba(255,170,190,0.12);
+0 10px 0 #ffd5e2,
+0 18px 30px rgba(255,170,190,0.18);
 
 padding:16px;
 
@@ -250,6 +253,25 @@ animation:shine 7s linear infinite;
 
 }
 
+/* 縫い目 */
+
+.left::after,
+.right::after{
+
+content:"";
+
+position:absolute;
+
+inset:10px;
+
+border-radius:30px;
+
+border:2px dashed rgba(255,190,210,0.45);
+
+pointer-events:none;
+
+}
+
 /* 左 */
 
 .left{
@@ -276,7 +298,7 @@ width:36%;
 
 .title{
 
-height:56px;
+height:58px;
 
 display:flex;
 
@@ -292,18 +314,65 @@ color:white;
 background:
 linear-gradient(
 180deg,
-#ff9db7,
-#ff7fa2
+#ffabc2,
+#ff8faf
 );
 
 border-radius:999px;
 
-margin-bottom:8px;
+margin-bottom:10px;
 
 box-shadow:
-0 6px 14px rgba(255,130,170,0.25);
+0 6px 0 #ffcad8,
+0 10px 18px rgba(255,130,170,0.18);
 
 border:4px solid white;
+
+position:relative;
+
+overflow:visible;
+
+}
+
+/* 犬耳 */
+
+.title::before,
+.title::after{
+
+content:"";
+
+position:absolute;
+
+top:-12px;
+
+width:28px;
+height:28px;
+
+background:#ffd6e3;
+
+border-radius:
+50% 50% 0 0;
+
+border:
+3px solid white;
+
+z-index:-1;
+
+}
+
+.title::before{
+
+left:90px;
+
+transform:rotate(-20deg);
+
+}
+
+.title::after{
+
+right:90px;
+
+transform:rotate(20deg);
 
 }
 
@@ -311,9 +380,9 @@ border:4px solid white;
 
 .rank{
 
-height:78px;
+height:90px;
 
-border-radius:30px;
+border-radius:34px;
 
 display:flex;
 
@@ -321,24 +390,37 @@ align-items:center;
 
 justify-content:space-between;
 
-padding:0 20px;
+padding:0 22px;
 
 font-size:28px;
 
 font-weight:900;
 
-margin-bottom:10px;
+margin-bottom:12px;
 
-box-shadow:
-0 5px 12px rgba(0,0,0,0.05);
-
-border:4px solid rgba(255,255,255,0.9);
+border:4px solid rgba(255,255,255,0.95);
 
 position:relative;
 
 overflow:hidden;
 
 animation:pop 0.4s;
+
+box-shadow:
+0 8px 0 rgba(255,210,225,0.95),
+0 12px 18px rgba(0,0,0,0.05);
+
+transition:
+transform 0.2s;
+
+}
+
+/* ぷに */
+
+.rank:hover{
+
+transform:
+scale(1.015);
 
 }
 
@@ -360,13 +442,14 @@ background:
 linear-gradient(
 120deg,
 transparent,
-rgba(255,255,255,0.4),
+rgba(255,255,255,0.35),
 transparent
 );
 
 transform:translateX(-100%);
 
-animation:shine2 5s infinite;
+animation:
+shine2 5s infinite;
 
 }
 
@@ -424,24 +507,30 @@ gap:14px;
 
 .medal{
 
-width:54px;
-height:54px;
+width:58px;
+height:58px;
 
 border-radius:999px;
 
-background:white;
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#fff3f6
+);
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-font-size:24px;
+font-size:25px;
 
 box-shadow:
-0 4px 10px rgba(0,0,0,0.08);
+0 5px 0 #ffdce6,
+0 8px 12px rgba(0,0,0,0.06);
 
-border:3px solid rgba(255,255,255,0.9);
+border:3px solid rgba(255,255,255,0.95);
 
 }
 
@@ -458,14 +547,17 @@ linear-gradient(
 
 color:white;
 
-padding:8px 18px;
+padding:10px 20px;
 
 border-radius:999px;
 
-font-size:22px;
+font-size:26px;
+
+font-weight:900;
 
 box-shadow:
-0 4px 10px rgba(255,130,170,0.22);
+0 5px 0 #ffbfd0,
+0 8px 12px rgba(255,130,170,0.18);
 
 }
 
@@ -486,15 +578,15 @@ gap:10px;
 
 .small{
 
-height:118px;
+height:122px;
 
-border-radius:28px;
+border-radius:34px;
 
 background:
 linear-gradient(
 180deg,
 #fffdfd,
-#fff5f8
+#fff4f7
 );
 
 border:4px solid #ffe3ec;
@@ -508,14 +600,29 @@ justify-content:center;
 
 position:relative;
 
+overflow:hidden;
+
 box-shadow:
-0 5px 12px rgba(0,0,0,0.04);
+0 8px 0 #ffdce7,
+0 10px 18px rgba(255,170,190,0.12);
 
 animation:pop 0.4s;
 
-overflow:hidden;
+transition:
+transform 0.2s;
 
 }
+
+/* ぷに */
+
+.small:hover{
+
+transform:
+scale(1.03);
+
+}
+
+/* 肉球 */
 
 .small::after{
 
