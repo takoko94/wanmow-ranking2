@@ -14,7 +14,7 @@ content="width=device-width,initial-scale=1.0">
 
 <style>
 
-/* フォント */
+/* ===== フォント ===== */
 
 @font-face{
 font-family:'Yasashisa';
@@ -27,24 +27,6 @@ padding:0;
 box-sizing:border-box;
 }
 
-html,
-body,
-div,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-button{
-
-font-family:
-'Yasashisa',
-sans-serif !important;
-
-}
-
 body{
 
 width:1280px;
@@ -52,13 +34,13 @@ height:720px;
 
 overflow:hidden;
 
-font-family:'Yasashisa' !important;
+font-family:'Yasashisa',sans-serif;
 
 background:
 linear-gradient(
 180deg,
-#fff9fb 0%,
-#fff4f7 100%
+#fff7fb 0%,
+#ffeef5 100%
 );
 
 position:relative;
@@ -67,7 +49,7 @@ color:#6a4a43;
 
 }
 
-/* 背景 */
+/* ===== 背景 ===== */
 
 body::before{
 
@@ -80,97 +62,214 @@ inset:0;
 background:
 
 radial-gradient(
-circle at 10% 20%,
+circle at 15% 20%,
 rgba(255,192,203,0.25),
 transparent 18%
 ),
 
 radial-gradient(
-circle at 85% 25%,
-rgba(255,220,230,0.3),
-transparent 16%
+circle at 80% 10%,
+rgba(255,220,235,0.35),
+transparent 18%
 ),
 
 radial-gradient(
 circle at 50% 90%,
-rgba(255,210,220,0.25),
-transparent 18%
+rgba(255,210,225,0.25),
+transparent 20%
 );
 
 pointer-events:none;
 
 }
 
-/* 肉球 */
+/* ===== 浮いてる装飾 ===== */
 
-body::after{
-
-content:"🐾 🦴 🐾 💖 🐾";
+.float{
 
 position:absolute;
 
-top:16px;
-left:20px;
+opacity:0.12;
 
-font-size:80px;
+font-size:42px;
 
-opacity:0.05;
-
-letter-spacing:50px;
+animation:float 4s ease-in-out infinite;
 
 pointer-events:none;
 
 }
 
-/* 全体 */
+.f1{
+top:30px;
+left:50px;
+}
+
+.f2{
+top:120px;
+right:120px;
+animation-delay:1s;
+}
+
+.f3{
+bottom:140px;
+left:80px;
+animation-delay:2s;
+}
+
+.f4{
+bottom:70px;
+right:90px;
+animation-delay:3s;
+}
+
+/* ===== 全体 ===== */
 
 .wrapper{
 
 width:1280px;
 height:720px;
 
-padding:14px;
+padding:16px;
 
 display:flex;
 flex-direction:column;
 
-gap:10px;
+gap:12px;
 
 position:relative;
 z-index:2;
 
-overflow:hidden;
+}
 
-transition:opacity 1s;
+/* ===== 上バー ===== */
+
+.topbar{
+
+height:54px;
+
+display:flex;
+
+align-items:center;
+justify-content:space-between;
 
 }
 
-/* ヘッダー */
+/* LIVE */
 
-.header{
+.live{
 
-height:140px;
+display:flex;
 
-position:relative;
+align-items:center;
+
+gap:12px;
+
+}
+
+/* LIVEバッジ */
+
+.live-badge{
+
+height:44px;
+
+padding:0 20px;
+
+border-radius:999px;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-padding-top:0;
+background:
+linear-gradient(
+180deg,
+#ff658d,
+#ff2f68
+);
 
-flex-shrink:0;
+color:white;
+
+font-size:24px;
+
+font-weight:900;
+
+box-shadow:
+0 6px 12px rgba(255,70,120,0.28);
+
+border:4px solid white;
+
+animation:pulse 1.5s infinite;
 
 }
 
-/* ロゴ */
+/* 時間 */
+
+.clock{
+
+font-size:30px;
+
+font-weight:900;
+
+color:#ff6f9f;
+
+background:white;
+
+padding:6px 18px;
+
+border-radius:999px;
+
+border:4px solid #ffd9e5;
+
+}
+
+/* テロップ */
+
+.telop{
+
+height:44px;
+
+padding:0 24px;
+
+border-radius:999px;
+
+display:flex;
+
+align-items:center;
+
+background:white;
+
+border:4px solid #ffdbe7;
+
+font-size:22px;
+
+font-weight:900;
+
+color:#ff6f9f;
+
+box-shadow:
+0 5px 12px rgba(0,0,0,0.05);
+
+}
+
+/* ===== ロゴ ===== */
+
+.logo-wrap{
+
+height:120px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+position:relative;
+
+}
 
 .logo{
 
-width:720px;
-
-max-width:88%;
+max-width:720px;
 
 max-height:120px;
 
@@ -182,12 +281,11 @@ drop-shadow(
 rgba(0,0,0,0.12)
 );
 
-animation:
-floatLogo 3s ease-in-out infinite;
+animation:floatLogo 3s ease-in-out infinite;
 
 }
 
-/* メイン */
+/* ===== メイン ===== */
 
 .main{
 
@@ -195,28 +293,53 @@ flex:1;
 
 display:flex;
 
-gap:18px;
-
-min-height:0;
+gap:16px;
 
 }
 
-/* 左右 */
+/* ===== 左 ===== */
 
-.left,
+.left{
+
+width:68%;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+/* ===== 右 ===== */
+
 .right{
 
+width:32%;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+/* ===== 共通BOX ===== */
+
+.panel{
+
 background:
-rgba(255,255,255,0.82);
+rgba(255,255,255,0.84);
 
 backdrop-filter:blur(10px);
 
-border-radius:36px;
+border-radius:34px;
 
-border:4px solid #ffe1ea;
+border:4px solid #ffdce8;
 
 box-shadow:
-0 10px 25px rgba(255,170,190,0.12);
+0 10px 24px rgba(255,170,190,0.12);
 
 padding:16px;
 
@@ -226,10 +349,9 @@ overflow:hidden;
 
 }
 
-/* 上キラ */
+/* キラ */
 
-.left::before,
-.right::before{
+.panel::before{
 
 content:"";
 
@@ -238,8 +360,8 @@ position:absolute;
 top:-80px;
 left:-120px;
 
-width:250px;
-height:200px;
+width:240px;
+height:180px;
 
 background:
 rgba(255,255,255,0.35);
@@ -250,75 +372,143 @@ animation:shine 7s linear infinite;
 
 }
 
-/* 左 */
+/* ===== タイトル ===== */
 
-.left{
+.section-title{
 
-width:64%;
-
-display:flex;
-
-flex-direction:column;
-
-gap:8px;
-
-}
-
-/* 右 */
-
-.right{
-
-width:36%;
-
-}
-
-/* 見出し */
-
-.title{
-
-height:56px;
+height:58px;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
+background:
+linear-gradient(
+180deg,
+#ff9fbb,
+#ff7aa1
+);
+
+color:white;
+
 font-size:30px;
 
 font-weight:900;
 
-color:white;
-
-background:
-linear-gradient(
-180deg,
-#ff9db7,
-#ff7fa2
-);
-
 border-radius:999px;
-
-margin-bottom:8px;
-
-box-shadow:
-0 6px 14px rgba(255,130,170,0.25);
 
 border:4px solid white;
 
+box-shadow:
+0 5px 12px rgba(255,120,170,0.24);
+
+margin-bottom:14px;
+
 }
 
-/* ランク */
+/* ===== TOP1 ===== */
 
-.rank{
+.top1{
 
-height:78px;
-
-border-radius:30px;
+height:130px;
 
 display:flex;
 
 align-items:center;
+justify-content:space-between;
 
+padding:0 26px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+135deg,
+#fff3b7,
+#ffe38c
+);
+
+border:4px solid rgba(255,255,255,0.9);
+
+box-shadow:
+0 6px 14px rgba(0,0,0,0.05);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* 王冠 */
+
+.crown{
+
+font-size:54px;
+
+}
+
+/* 名前 */
+
+.top1-name{
+
+font-size:56px;
+
+font-weight:900;
+
+color:#7a523d;
+
+}
+
+/* 票 */
+
+.top1-vote{
+
+background:
+linear-gradient(
+180deg,
+#ff8fb0,
+#ff6e9a
+);
+
+color:white;
+
+padding:12px 24px;
+
+border-radius:999px;
+
+font-size:34px;
+
+font-weight:900;
+
+box-shadow:
+0 5px 12px rgba(255,120,170,0.25);
+
+}
+
+/* ===== TOP2-5 ===== */
+
+.rank-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+/* 行 */
+
+.rank{
+
+height:72px;
+
+border-radius:26px;
+
+display:flex;
+
+align-items:center;
 justify-content:space-between;
 
 padding:0 20px;
@@ -327,18 +517,21 @@ font-size:28px;
 
 font-weight:900;
 
-margin-bottom:10px;
-
-box-shadow:
-0 5px 12px rgba(0,0,0,0.05);
+background:
+linear-gradient(
+135deg,
+#fffafd,
+#fff3f7
+);
 
 border:4px solid rgba(255,255,255,0.9);
+
+box-shadow:
+0 5px 12px rgba(0,0,0,0.04);
 
 position:relative;
 
 overflow:hidden;
-
-animation:pop 0.4s;
 
 }
 
@@ -360,7 +553,7 @@ background:
 linear-gradient(
 120deg,
 transparent,
-rgba(255,255,255,0.4),
+rgba(255,255,255,0.35),
 transparent
 );
 
@@ -370,45 +563,7 @@ animation:shine2 5s infinite;
 
 }
 
-/* 色 */
-
-.gold{
-background:
-linear-gradient(
-135deg,
-#fff7c0,
-#ffe68f
-);
-}
-
-.silver{
-background:
-linear-gradient(
-135deg,
-#f7f7f7,
-#e7e7e7
-);
-}
-
-.bronze{
-background:
-linear-gradient(
-135deg,
-#ffe6d6,
-#ffd0b4
-);
-}
-
-.normal{
-background:
-linear-gradient(
-135deg,
-#fffafd,
-#fff3f7
-);
-}
-
-/* 左側 */
+/* 左 */
 
 .rank-left{
 
@@ -420,28 +575,28 @@ gap:14px;
 
 }
 
-/* メダル */
+/* 順位 */
 
-.medal{
+.rank-num{
 
-width:54px;
-height:54px;
+width:50px;
+height:50px;
 
 border-radius:999px;
-
-background:white;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-font-size:24px;
+background:white;
+
+border:3px solid #ffdce8;
+
+font-size:22px;
 
 box-shadow:
-0 4px 10px rgba(0,0,0,0.08);
-
-border:3px solid rgba(255,255,255,0.9);
+0 4px 10px rgba(0,0,0,0.05);
 
 }
 
@@ -452,24 +607,24 @@ border:3px solid rgba(255,255,255,0.9);
 background:
 linear-gradient(
 180deg,
-#ff9db7,
-#ff7fa2
+#ff95b5,
+#ff739e
 );
-
-color:white;
 
 padding:8px 18px;
 
 border-radius:999px;
 
+color:white;
+
 font-size:22px;
 
 box-shadow:
-0 4px 10px rgba(255,130,170,0.22);
+0 4px 10px rgba(255,120,170,0.22);
 
 }
 
-/* 右 */
+/* ===== 右カード ===== */
 
 .grid{
 
@@ -486,7 +641,7 @@ gap:10px;
 
 .small{
 
-height:118px;
+height:120px;
 
 border-radius:28px;
 
@@ -511,24 +666,116 @@ position:relative;
 box-shadow:
 0 5px 12px rgba(0,0,0,0.04);
 
-animation:pop 0.4s;
-
 overflow:hidden;
 
 }
 
-.small::after{
+/* 小順位 */
 
-content:"🐾";
+.small-rank{
 
-position:absolute;
+font-size:22px;
 
-right:10px;
-bottom:4px;
+color:#ff7aa1;
+
+margin-bottom:6px;
+
+}
+
+/* 小名前 */
+
+.small-name{
+
+font-size:30px;
+
+font-weight:900;
+
+margin-bottom:6px;
+
+}
+
+/* 小票 */
+
+.small-vote{
+
+font-size:22px;
+
+color:#ff7aa1;
+
+font-weight:900;
+
+}
+
+/* ===== 下速報 ===== */
+
+.news{
+
+height:58px;
+
+display:flex;
+
+align-items:center;
+
+padding:0 20px;
+
+gap:16px;
+
+background:white;
+
+border-radius:999px;
+
+border:4px solid #ffdce8;
+
+box-shadow:
+0 5px 12px rgba(0,0,0,0.04);
+
+}
+
+/* 速報 */
+
+.news-badge{
+
+height:38px;
+
+padding:0 18px;
+
+border-radius:999px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+background:
+linear-gradient(
+180deg,
+#ff658d,
+#ff2f68
+);
+
+color:white;
+
+font-size:20px;
+
+font-weight:900;
+
+}
+
+/* 速報文 */
+
+.news-text{
 
 font-size:24px;
 
-opacity:0.12;
+font-weight:900;
+
+color:#ff6f9f;
+
+white-space:nowrap;
+
+overflow:hidden;
+
+text-overflow:ellipsis;
 
 }
 
@@ -536,19 +783,17 @@ opacity:0.12;
 
 .update{
 
-margin-top:10px;
-
-text-align:center;
+text-align:right;
 
 font-size:14px;
 
 opacity:0.65;
 
-font-weight:700;
+margin-top:4px;
 
 }
 
-/* 画像切り替え */
+/* ===== 切り替え画像 ===== */
 
 #imageScreen{
 
@@ -589,18 +834,52 @@ display:block;
 
 }
 
-/* アニメ */
+/* ===== アニメ ===== */
 
-@keyframes pop{
+@keyframes pulse{
 
 0%{
-transform:scale(0.95);
-opacity:0;
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.05);
 }
 
 100%{
 transform:scale(1);
-opacity:1;
+}
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes floatLogo{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-6px);
+}
+
+100%{
+transform:translateY(0px);
 }
 
 }
@@ -637,27 +916,18 @@ transform:translateX(120%);
 
 }
 
-@keyframes floatLogo{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-6px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
 </style>
 
 </head>
 
 <body>
+
+<!-- 装飾 -->
+
+<div class="float f1">🐾</div>
+<div class="float f2">💖</div>
+<div class="float f3">✨</div>
+<div class="float f4">🦴</div>
 
 <!-- BGM -->
 
@@ -673,7 +943,7 @@ type="audio/mpeg">
 
 </audio>
 
-<!-- 切り替え画像 -->
+<!-- 切替画像 -->
 
 <div id="imageScreen">
 
@@ -686,9 +956,32 @@ src="event.jpg">
 
 <div class="wrapper">
 
-<!-- ヘッダー -->
+<!-- 上バー -->
 
-<div class="header">
+<div class="topbar">
+
+<div class="live">
+
+<div class="live-badge">
+LIVE
+</div>
+
+<div class="clock"
+id="clock">
+20:25
+</div>
+
+</div>
+
+<div class="telop">
+🐶 わんも〜推し犬総選挙 放送中！
+</div>
+
+</div>
+
+<!-- ロゴ -->
+
+<div class="logo-wrap">
 
 <img
 src="logo.png"
@@ -704,11 +997,27 @@ class="logo">
 
 <div class="left">
 
-<div class="title">
+<div class="panel">
+
+<div class="section-title">
+👑 現在の1位 👑
+</div>
+
+<div id="top1"></div>
+
+</div>
+
+<div class="panel" style="flex:1;">
+
+<div class="section-title">
 🏆 TOP 5 🏆
 </div>
 
-<div id="top5"></div>
+<div class="rank-list"
+id="top5">
+</div>
+
+</div>
 
 </div>
 
@@ -716,12 +1025,31 @@ class="logo">
 
 <div class="right">
 
-<div class="title">
+<div class="panel" style="flex:1;">
+
+<div class="section-title">
 🐾 6〜10位 🐾
 </div>
 
 <div class="grid"
 id="top10">
+</div>
+
+</div>
+
+<div class="news">
+
+<div class="news-badge">
+速報
+</div>
+
+<div class="news-text"
+id="newsText">
+
+ただいま集計中！
+
+</div>
+
 </div>
 
 <div class="update"
@@ -737,12 +1065,41 @@ id="update">
 
 <script>
 
-/* GAS URL */
+/* ===== GAS ===== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycby7mjB5m4pMi63DHtdYOgfEZaQ7TJyAi3mOfndk7WHXyWDsvHeqFFCfdHI6BvjQQoNz6g/exec";
 
-/* ランキング取得 */
+/* ===== 時計 ===== */
+
+function updateClock(){
+
+const now =
+new Date();
+
+const h =
+String(now.getHours())
+.padStart(2,"0");
+
+const m =
+String(now.getMinutes())
+.padStart(2,"0");
+
+document
+.getElementById("clock")
+.innerText =
+`${h}:${m}`;
+
+}
+
+setInterval(
+updateClock,
+1000
+);
+
+updateClock();
+
+/* ===== ランキング ===== */
 
 async function loadRanking(){
 
@@ -771,9 +1128,12 @@ console.log(e);
 
 }
 
-/* 描画 */
+/* ===== 描画 ===== */
 
 function drawRanking(ranking){
+
+const top1 =
+document.getElementById("top1");
 
 const top5 =
 document.getElementById("top5");
@@ -781,33 +1141,55 @@ document.getElementById("top5");
 const top10 =
 document.getElementById("top10");
 
+top1.innerHTML = "";
 top5.innerHTML = "";
 top10.innerHTML = "";
 
+if(ranking.length > 0){
+
+const first = ranking[0];
+
+top1.innerHTML = `
+
+<div class="top1">
+
+<div class="crown">
+👑
+</div>
+
+<div class="top1-name">
+${first.name}
+</div>
+
+<div class="top1-vote">
+${first.votes}票
+</div>
+
+</div>
+
+`;
+
+document
+.getElementById("newsText")
+.innerText =
+"現在の1位は「" +
+first.name +
+"」！このまま逃げ切れるのか！？";
+
+}
+
 ranking.forEach((dog,i)=>{
 
-let cls = "normal";
-
-if(i==0) cls="gold";
-else if(i==1) cls="silver";
-else if(i==2) cls="bronze";
-
-const medal =
-i==0 ? "🥇" :
-i==1 ? "🥈" :
-i==2 ? "🥉" :
-(i+1)+"位";
-
-if(i < 5){
+if(i >= 1 && i < 5){
 
 top5.innerHTML += `
 
-<div class="rank ${cls}">
+<div class="rank">
 
 <div class="rank-left">
 
-<div class="medal">
-${medal}
+<div class="rank-num">
+${i+1}
 </div>
 
 <div>
@@ -824,39 +1206,24 @@ ${dog.votes}票
 
 `;
 
-}else if(i < 10){
+}
+
+if(i >= 5 && i < 10){
 
 top10.innerHTML += `
 
 <div class="small">
 
-<div style="
-font-size:20px;
-color:#ff7fa2;
-margin-bottom:4px;
-">
+<div class="small-rank">
 ${i+1}位
 </div>
 
-<div style="
-font-size:26px;
-font-weight:900;
-margin-bottom:6px;
-text-align:center;
-">
-
+<div class="small-name">
 ${dog.name}
-
 </div>
 
-<div style="
-font-size:22px;
-color:#ff7fa2;
-font-weight:900;
-">
-
+<div class="small-vote">
 ${dog.votes}票
-
 </div>
 
 </div>
@@ -869,25 +1236,23 @@ ${dog.votes}票
 
 }
 
-/* 初回 */
+/* ===== 初回 ===== */
 
 loadRanking();
 
-/* 自動更新 */
+/* ===== 更新 ===== */
 
 setInterval(
 loadRanking,
 10000
 );
 
-/* BGM */
+/* ===== BGM ===== */
 
 const bgm =
 document.getElementById("bgm");
 
 bgm.volume = 0.01;
-
-/* 自動再生 */
 
 window.addEventListener(
 "load",
@@ -907,7 +1272,7 @@ console.log(e);
 
 });
 
-/* 画面切り替え */
+/* ===== 画面切替 ===== */
 
 const wrapper =
 document.querySelector(
