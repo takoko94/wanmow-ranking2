@@ -141,6 +141,8 @@ z-index:2;
 
 overflow:hidden;
 
+transition:opacity 1s;
+
 }
 
 /* ヘッダー */
@@ -550,7 +552,8 @@ font-weight:700;
 
 #imageScreen{
 
-display:none;
+opacity:0;
+pointer-events:none;
 
 position:absolute;
 
@@ -562,7 +565,16 @@ height:720px;
 
 z-index:999;
 
-background:black;
+background:
+linear-gradient(
+180deg,
+#ffdbe7,
+#fff4f7
+);
+
+transition:opacity 1s;
+
+overflow:hidden;
 
 }
 
@@ -572,6 +584,8 @@ width:100%;
 height:100%;
 
 object-fit:cover;
+
+display:block;
 
 }
 
@@ -913,18 +927,20 @@ showImage = !showImage;
 
 if(showImage){
 
-wrapper.style.display =
-"none";
+wrapper.style.opacity = "0";
 
-imageScreen.style.display =
-"block";
+imageScreen.style.opacity = "1";
+
+imageScreen.style.pointerEvents =
+"auto";
 
 }else{
 
-wrapper.style.display =
-"flex";
+wrapper.style.opacity = "1";
 
-imageScreen.style.display =
+imageScreen.style.opacity = "0";
+
+imageScreen.style.pointerEvents =
 "none";
 
 }
