@@ -570,7 +570,7 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:10px;
+gap:8px;
 
 }
 
@@ -578,9 +578,9 @@ gap:10px;
 
 .small{
 
-height:108px;
+height:82px;
 
-border-radius:30px;
+border-radius:26px;
 
 background:
 linear-gradient(
@@ -611,6 +611,8 @@ animation:pop 0.4s;
 transition:
 transform 0.2s;
 
+padding:4px;
+
 }
 
 /* ぷに */
@@ -630,10 +632,10 @@ content:"🐾";
 
 position:absolute;
 
-right:10px;
-bottom:4px;
+right:8px;
+bottom:2px;
 
-font-size:22px;
+font-size:18px;
 
 opacity:0.12;
 
@@ -824,7 +826,7 @@ class="logo">
 <div class="right">
 
 <div class="title">
-🐾 6〜10位 🐾
+🐾 6〜13位 🐾
 </div>
 
 <div class="grid"
@@ -931,26 +933,30 @@ ${dog.votes}票
 
 `;
 
-}else if(i < 10){
+}else if(i < 13){
 
 top10.innerHTML += `
 
 <div class="small">
 
 <div style="
-font-size:18px;
+font-size:16px;
 color:#ff7fa2;
-margin-bottom:2px;
+margin-bottom:1px;
+font-weight:900;
 ">
+
 ${i+1}位
+
 </div>
 
 <div style="
-font-size:22px;
+font-size:18px;
 font-weight:900;
-margin-bottom:4px;
+margin-bottom:2px;
 text-align:center;
-line-height:1.1;
+line-height:1.05;
+padding:0 4px;
 ">
 
 ${dog.name}
@@ -958,7 +964,7 @@ ${dog.name}
 </div>
 
 <div style="
-font-size:20px;
+font-size:17px;
 color:#ff7fa2;
 font-weight:900;
 ">
