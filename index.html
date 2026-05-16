@@ -129,12 +129,12 @@ pointer-events:none;
 width:1280px;
 height:720px;
 
-padding:14px;
+padding:10px;
 
 display:flex;
 flex-direction:column;
 
-gap:10px;
+gap:6px;
 
 position:relative;
 z-index:2;
@@ -149,7 +149,7 @@ transition:opacity 1s;
 
 .header{
 
-height:140px;
+height:115px;
 
 position:relative;
 
@@ -172,7 +172,7 @@ width:720px;
 
 max-width:88%;
 
-max-height:120px;
+max-height:95px;
 
 object-fit:contain;
 
@@ -195,7 +195,7 @@ flex:1;
 
 display:flex;
 
-gap:18px;
+gap:12px;
 
 min-height:0;
 
@@ -221,7 +221,7 @@ box-shadow:
 0 10px 0 #ffd5e2,
 0 18px 30px rgba(255,170,190,0.18);
 
-padding:16px;
+padding:12px;
 
 position:relative;
 
@@ -282,7 +282,7 @@ display:flex;
 
 flex-direction:column;
 
-gap:8px;
+gap:4px;
 
 }
 
@@ -298,14 +298,14 @@ width:36%;
 
 .title{
 
-height:58px;
+height:50px;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-font-size:30px;
+font-size:26px;
 
 font-weight:900;
 
@@ -320,7 +320,7 @@ linear-gradient(
 
 border-radius:999px;
 
-margin-bottom:10px;
+margin-bottom:6px;
 
 box-shadow:
 0 6px 0 #ffcad8,
@@ -343,10 +343,10 @@ content:"";
 
 position:absolute;
 
-top:-12px;
+top:-10px;
 
-width:28px;
-height:28px;
+width:24px;
+height:24px;
 
 background:#ffd6e3;
 
@@ -362,7 +362,7 @@ z-index:-1;
 
 .title::before{
 
-left:90px;
+left:70px;
 
 transform:rotate(-20deg);
 
@@ -370,7 +370,7 @@ transform:rotate(-20deg);
 
 .title::after{
 
-right:90px;
+right:70px;
 
 transform:rotate(20deg);
 
@@ -380,9 +380,9 @@ transform:rotate(20deg);
 
 .rank{
 
-height:90px;
+height:72px;
 
-border-radius:34px;
+border-radius:30px;
 
 display:flex;
 
@@ -390,13 +390,13 @@ align-items:center;
 
 justify-content:space-between;
 
-padding:0 22px;
+padding:0 18px;
 
-font-size:28px;
+font-size:24px;
 
 font-weight:900;
 
-margin-bottom:12px;
+margin-bottom:8px;
 
 border:4px solid rgba(255,255,255,0.95);
 
@@ -499,7 +499,7 @@ display:flex;
 
 align-items:center;
 
-gap:14px;
+gap:12px;
 
 }
 
@@ -507,8 +507,8 @@ gap:14px;
 
 .medal{
 
-width:58px;
-height:58px;
+width:48px;
+height:48px;
 
 border-radius:999px;
 
@@ -524,7 +524,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-font-size:25px;
+font-size:21px;
 
 box-shadow:
 0 5px 0 #ffdce6,
@@ -547,11 +547,11 @@ linear-gradient(
 
 color:white;
 
-padding:10px 20px;
+padding:8px 16px;
 
 border-radius:999px;
 
-font-size:26px;
+font-size:22px;
 
 font-weight:900;
 
@@ -570,7 +570,7 @@ display:grid;
 grid-template-columns:
 1fr 1fr;
 
-gap:10px;
+gap:8px;
 
 }
 
@@ -578,9 +578,9 @@ gap:10px;
 
 .small{
 
-height:122px;
+height:100px;
 
-border-radius:34px;
+border-radius:30px;
 
 background:
 linear-gradient(
@@ -633,7 +633,7 @@ position:absolute;
 right:10px;
 bottom:4px;
 
-font-size:24px;
+font-size:22px;
 
 opacity:0.12;
 
@@ -643,11 +643,11 @@ opacity:0.12;
 
 .update{
 
-margin-top:10px;
+margin-top:6px;
 
 text-align:center;
 
-font-size:14px;
+font-size:12px;
 
 opacity:0.65;
 
@@ -751,7 +751,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-6px);
+transform:translateY(-4px);
 }
 
 100%{
@@ -938,18 +938,19 @@ top10.innerHTML += `
 <div class="small">
 
 <div style="
-font-size:20px;
+font-size:18px;
 color:#ff7fa2;
-margin-bottom:4px;
+margin-bottom:2px;
 ">
 ${i+1}位
 </div>
 
 <div style="
-font-size:26px;
+font-size:22px;
 font-weight:900;
-margin-bottom:6px;
+margin-bottom:4px;
 text-align:center;
+line-height:1.1;
 ">
 
 ${dog.name}
@@ -957,7 +958,7 @@ ${dog.name}
 </div>
 
 <div style="
-font-size:22px;
+font-size:20px;
 color:#ff7fa2;
 font-weight:900;
 ">
